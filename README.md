@@ -46,6 +46,8 @@ Esta libreria usa un set de funciones asincronas y eventos que utilizan una secu
 
 > *[*Code*](https://github.com/MaurickThom/Reactive-programming/blob/master/001/rxjs1/src/app/app.component.ts)*
 
+> *[*Rx Visualizer*](https://rxviz.com)*
+
 ## *Referencias*
 
 - [*RxJS - 1*](https://www.adictosaltrabajo.com/2017/11/14/programacion-reactiva-uso-de-la-libreria-rxjs/)
