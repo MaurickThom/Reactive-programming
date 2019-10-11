@@ -2,7 +2,9 @@
 
 ## ¿Que és?
 
-Es un paradigma enfocado en el trabajo con flujos de datos de manera asincrona
+Es un paradigma enfocado en el trabajo con flujos de datos `(Stream)` de manera asincrona. Un Stream es una secuencia de eventos ordenados
+
+> *La programación reactiva es un paradigma de programación basado en Stream de datos Observables*
 
 ## **Diferencia entre promesa y el Observable**
 
@@ -14,6 +16,6 @@ Para javascript un Observable se genera gracias a una colección de elementos as
 
 ## *Referencias*
 
-> [*RxJS - 1*](https://www.adictosaltrabajo.com/2017/11/14/programacion-reactiva-uso-de-la-libreria-rxjs/)
-> [*Promise vs Observable 1*](https://es.stackoverflow.com/questions/74930/angular-diferencia-entre-observable-y-promise)
-> [*Promise vs Observable 2*](https://www.arquitecturajava.com/promise-vs-observable-en-javascript/)
+- [*RxJS - 1*](https://www.adictosaltrabajo.com/2017/11/14/programacion-reactiva-uso-de-la-libreria-rxjs/)
+- [*Promise vs Observable 1*](https://es.stackoverflow.com/questions/74930/angular-diferencia-entre-observable-y-promise)
+- [*Promise vs Observable 2*](https://www.arquitecturajava.com/promise-vs-observable-en-javascript/)
