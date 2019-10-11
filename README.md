@@ -4,8 +4,24 @@
 
 Es un paradigma enfocado en el trabajo con flujos de datos `(Stream)` de manera asincrona. Un Stream es una secuencia de eventos ordenados en el tiempo.Puede emitir tres cosas diferentes : un valor , un error y una señal de `<<completado>>`. En otras palabras es un flujo constante de datos.
 
-Se captura estos eventos emitidos de forma asincrona, definiendo una función que se ejecutará cuando se emite un valor , otra función cuando se emite un error y otra se emite cuando se completa. La `escucha` del Stream se le conoce como `suscripcion`.
+Se captura estos eventos emitidos de forma asincrona, definiendo una función que se ejecutará cuando se emite un valor , otra función cuando se emite un error y otra se emite cuando se completa. La `escucha` **del** Stream se le conoce como `suscripcion`.
 Las funciones que estamos definiendo son `observers`. El Stream es el sujeto `Subject que tambien es un Observable`.
+
+````javascript
+
+    /* Get stock  */
+    const subscription = getAsyncStockData()
+    .filter(quote => quote.price > 30)
+    .map(quote => quote.price)
+    .subscribe(
+        price => console.log(`Prices higher than $30: ${price}`),
+        err => console.log(`Something went wrong: ${err.message}`)
+    );
+
+    /*acabamos */
+    subscription.unsubscribe();
+
+````
 
 > *La programación reactiva es un paradigma basado en Stream de datos Observables*
 > <br>*Se basa en un centralizador de contenido que entiende como enviar los datos*
