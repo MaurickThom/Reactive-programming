@@ -4,7 +4,8 @@
 
 Es un paradigma enfocado en el trabajo con flujos de datos `(Stream)` de manera asincrona. Un Stream es una secuencia de eventos ordenados
 
-> *La programación reactiva es un paradigma de programación basado en Stream de datos Observables*
+> *La programación reactiva es un paradigma basado en Stream de datos Observables*
+> <br>*Se basa en un centralizador de contenido que entiende como enviar los datos*
 
 ## **Diferencia entre promesa y el Observable**
 
