@@ -2,10 +2,14 @@
 
 ## ¿Que és?
 
-Es un paradigma enfocado en el trabajo con flujos de datos `(Stream)` de manera asincrona. Un Stream es una secuencia de eventos ordenados
+Es un paradigma enfocado en el trabajo con flujos de datos `(Stream)` de manera asincrona. Un Stream es una secuencia de eventos ordenados en el tiempo.Puede emitir tres cosas diferentes : un valor , un error y una señal de `<<completado>>`. En otras palabras es un flujo constante de datos.
+
+Se captura estos eventos emitidos de forma asincrona, definiendo una función que se ejecutará cuando se emite un valor , otra función cuando se emite un error y otra se emite cuando se completa. La `escucha` del Stream se le conoce como `suscripcion`.
+Las funciones que estamos definiendo son `observers`. El Stream es el sujeto `Subject que tambien es un Observable`.
 
 > *La programación reactiva es un paradigma basado en Stream de datos Observables*
 > <br>*Se basa en un centralizador de contenido que entiende como enviar los datos*
+> <br>*Uno se suscribe a un flujo constrante de datos (Stream) / (Evento)*
 
 ## **Diferencia entre promesa y el Observable**
 
