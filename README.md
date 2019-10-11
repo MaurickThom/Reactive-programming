@@ -2,6 +2,8 @@
 
 ## ¿Que és?
 
+Es un paradigma enfocado en el trabajo con flujos de datos de manera asincrona
+
 ## **Diferencia entre promesa y el Observable**
 
 La mayor diferencia es en el control de los datos que se genera mediante un flujo `(Stream)`
