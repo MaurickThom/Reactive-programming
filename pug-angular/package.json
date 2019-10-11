@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "concurrently \"npm run pug-it:w\" \"ng serve -o \" ",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "pug-it": "pug src",
+    "pug-it:w": "pug src -P -w"
   },
   "private": true,
   "dependencies": {
