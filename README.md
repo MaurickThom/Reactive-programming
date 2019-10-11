@@ -35,6 +35,17 @@ Y en segundo lugar un observable es un patron de diseño donde Angular lo usa co
 
 Para javascript un Observable se genera gracias a una colección de elementos asincronos (`amo esta parte <3`)
 
+
+## **RxJS**
+
+Esta libreria usa un set de funciones asincronas y eventos que utilizan una secuencia de observables y operadores de consulta.
+
+> *RxJS, nos permite representan flujos de datos asíncronos con Observables, consultar los flujos de datos asíncronos utilizando los operadores y parametrizar la concurrencia en los flujos de datos asíncronos usando Schedulers. En pocas palabras, RxJS = Observables + Operadores + Programadores(schedulers).*
+
+> *[*Example Pattern Observable*](https://gist.github.com/MaurickThom/c422815b5ccbeded727bad0dd4a4c3fc)*
+
+> *[*Code*](https://github.com/MaurickThom/Reactive-programming/blob/master/001/rxjs1/src/app/app.component.ts)*
+
 ## *Referencias*
 
 - [*RxJS - 1*](https://www.adictosaltrabajo.com/2017/11/14/programacion-reactiva-uso-de-la-libreria-rxjs/)
