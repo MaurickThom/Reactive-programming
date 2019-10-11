@@ -48,6 +48,8 @@ Esta libreria usa un set de funciones asincronas y eventos que utilizan una secu
 
 > *[*Rx Visualizer*](https://rxviz.com)*
 
+> *[*RxMarbles*](https://rxmarbles.com/#from)*
+
 ## *Referencias*
 
 - [*RxJS - 1*](https://www.adictosaltrabajo.com/2017/11/14/programacion-reactiva-uso-de-la-libreria-rxjs/)
