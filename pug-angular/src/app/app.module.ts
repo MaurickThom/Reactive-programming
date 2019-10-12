@@ -8,6 +8,7 @@ import { FromEventComponent } from './components/from-event/from-event.component
 import { RandomErrorComponent } from './components/random-error/random-error.component';
 import { ChessGameComponent } from './components/chess-game/chess-game.component';
 import { MapFilterComponent } from './components/map-filter/map-filter.component';
+import { CsTapComponent } from './components/cs-tap/cs-tap.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MapFilterComponent } from './components/map-filter/map-filter.component
     FromEventComponent,
     RandomErrorComponent,
     ChessGameComponent,
-    MapFilterComponent
+    MapFilterComponent,
+    CsTapComponent
   ],
   imports: [
     BrowserModule,
