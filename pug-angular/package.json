@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"npm run pug-it:w\" \"ng serve -o \" ",
+    "start": "concurrently \"npm run pug-it:w\" \"ng serve \" ",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
