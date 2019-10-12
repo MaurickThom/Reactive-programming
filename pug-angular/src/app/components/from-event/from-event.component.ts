@@ -11,6 +11,12 @@ export class FromEventComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    const el = document.getElementById('elemento')
+    const mousemove = fromEvent(el,'mousemove')
+
+    mousemove.subscribe((event:MouseEvent)=>{
+      console.log(`MouseEvent ${event.clientX}`)
+    })
   }
 
 }
