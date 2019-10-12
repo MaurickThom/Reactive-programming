@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { fromEvent } from 'rxjs';
+import { fromEvent ,timer} from 'rxjs';
 import { tap } from 'rxjs/operators';
+import {mapTo,share} from 'rxjs/operators'
 
 @Component({
   selector: 'app-cs-tap',
@@ -22,6 +23,10 @@ export class CsTapComponent implements OnInit {
         err=>console.log(err),
         ()=>console.log(`Completado`))
       ).subscribe(console.log)
+  }
+
+  func_share(){
+
   }
 
 }
