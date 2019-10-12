@@ -15,7 +15,7 @@ export class FromEventComponent implements OnInit {
     const mousemove = fromEvent(el,'mousemove')
 
     mousemove.subscribe((event:MouseEvent)=>{
-      console.log(`MouseEvent ${event.clientX}`)
+      console.log(`MouseEvent  cords  => x : ${event.clientX} , y : ${event.clientY} `)
     })
   }
 

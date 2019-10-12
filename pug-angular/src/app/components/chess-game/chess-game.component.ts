@@ -28,12 +28,16 @@ export class ChessGameComponent implements OnInit {
 
     timer$.pipe(
       zip(
-        pieces$,
-        columns$,
-        rows$
-        ),
+          pieces$,
+          columns$,
+          rows$
+        ), // este zip al combinar los tres observables lo retornara de la siguiente manera
+         // [indice: 1,pieces$-1,columns$-1,rows$-1]
+        // [indice: 2,pieces$-2,columns$-2,rows$-2]
+        // [indice: 3,pieces$-3,columns$-3,rows$-3]  ... y así
+        map(([index,piece,column,row])=>`${index} .- ${piece},${column},${row}  `)
         )
-        map()
+    .subscribe(console.log)
   }
 
 }

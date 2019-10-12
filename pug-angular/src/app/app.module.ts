@@ -7,6 +7,7 @@ import { IntervaltimerComponent } from './components/intervaltimer/intervaltimer
 import { FromEventComponent } from './components/from-event/from-event.component';
 import { RandomErrorComponent } from './components/random-error/random-error.component';
 import { ChessGameComponent } from './components/chess-game/chess-game.component';
+import { MapFilterComponent } from './components/map-filter/map-filter.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ChessGameComponent } from './components/chess-game/chess-game.component
     IntervaltimerComponent,
     FromEventComponent,
     RandomErrorComponent,
-    ChessGameComponent
+    ChessGameComponent,
+    MapFilterComponent
   ],
   imports: [
     BrowserModule,
