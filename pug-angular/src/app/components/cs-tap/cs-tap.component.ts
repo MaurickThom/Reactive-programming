@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { fromEvent ,timer} from 'rxjs';
 import { tap } from 'rxjs/operators';
 import {mapTo,share} from 'rxjs/operators'
+import {Subject} from 'rxjs'
 
 @Component({
   selector: 'app-cs-tap',
@@ -13,6 +14,9 @@ export class CsTapComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    let subject = new Subject<>()
+
     const clicks = fromEvent(document,'click')
     // .subscribe({
     //   next:(event)=>console.log(event),
@@ -26,7 +30,10 @@ export class CsTapComponent implements OnInit {
   }
 
   func_share(){
-
+    // const timer$ = timer(1000)
+    // const obs = timer$.pipe(
+    //   tap()
+    // )
   }
 
 }
