@@ -55,3 +55,4 @@ Esta libreria usa un set de funciones asincronas y eventos que utilizan una secu
 - [*RxJS - 1*](https://www.adictosaltrabajo.com/2017/11/14/programacion-reactiva-uso-de-la-libreria-rxjs/)
 - [*Promise vs Observable 1*](https://es.stackoverflow.com/questions/74930/angular-diferencia-entre-observable-y-promise)
 - [*Promise vs Observable 2*](https://www.arquitecturajava.com/promise-vs-observable-en-javascript/)
+- [*30 Dias de RxJS*](https://medium.com/@jorgeucano/30-días-con-rxjs-día-1-e911e68f6063)
