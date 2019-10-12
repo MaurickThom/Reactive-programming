@@ -42,7 +42,9 @@ Una promesa se resuelve en un solo valor de forma asincrónica ya sea rechazado 
 Ejemplos concretos:
 
 > Promesa: Respuesta de una llamada Ajax
+
 > Observable: Haga clic en eventos
+
 ## **RxJS**
 
 Esta libreria usa un set de funciones asincronas y eventos que utilizan una secuencia de observables y operadores de consulta.
@@ -56,6 +58,17 @@ Esta libreria usa un set de funciones asincronas y eventos que utilizan una secu
 > *[*Rx Visualizer*](https://rxviz.com)*
 
 > *[*RxMarbles*](https://rxmarbles.com/#from)*
+
+## **Subject**
+
+Un `subject` es una clase especializada de observable cuya función es el detectar los cambios y emitirlos de forma multicast.
+Mientras que un simple observable es unicast, es decir que cada observador suscrito posee uina ejecuccion independiente del observable.
+
+Internamente un subject se suscribe a un observable simple
+
+````javascript
+    observable.subscribe(subject)
+````
 
 ## *Referencias*
 
