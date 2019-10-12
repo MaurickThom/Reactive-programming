@@ -69,8 +69,8 @@ Internamente un subject se suscribe a un observable simple
 ````javascript
     observable.subscribe(subject)
 ````
-Los operadores Multicast `ejm : Subject` en realidad lo que hace es que los observers se suscriben a un sujeto subyacente , y el sujeto sesuscribe a la funete Observable
-Estos devuelven un Oservable que se parece a un Observable normal, pero funciona como un Subject cuando se trata de susbribirse.
+Los operadores Multicast `ejm : Subject` en realidad lo que hace es que los observers se suscriben a un sujeto subyacente , y el sujeto se suscribe a la funete Observable
+Estos devuelven un Observable que se parece a un Observable normal, pero funciona como un Subject cuando se trata de susbribirse.
 
 ## *Referencias*
 
@@ -78,3 +78,4 @@ Estos devuelven un Oservable que se parece a un Observable normal, pero funciona
 - [*Promise vs Observable 1*](https://es.stackoverflow.com/questions/74930/angular-diferencia-entre-observable-y-promise)
 - [*Promise vs Observable 2*](https://www.arquitecturajava.com/promise-vs-observable-en-javascript/)
 - [*30 Dias de RxJS*](https://medium.com/@jorgeucano/30-días-con-rxjs-día-1-e911e68f6063)
+- [*Angular in Depth*](https://blog.angularindepth.com/the-best-way-to-unsubscribe-rxjs-observable-in-the-angular-applications-d8f9aa42f6a0)
