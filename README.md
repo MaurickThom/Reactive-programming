@@ -35,7 +35,14 @@ Y en segundo lugar un observable es un patron de diseño donde Angular lo usa co
 
 Para javascript un Observable se genera gracias a una colección de elementos asincronos (`amo esta parte <3`)
 
+### **Conclusión**
 
+Una promesa se resuelve en un solo valor de forma asincrónica ya sea rechazado (reject) , resulto (resolve) o en espera, un observable resuelve (o emite) múltiples valores de forma asíncrona (a lo largo del tiempo).
+
+Ejemplos concretos:
+
+> Promesa: Respuesta de una llamada Ajax
+> Observable: Haga clic en eventos
 ## **RxJS**
 
 Esta libreria usa un set de funciones asincronas y eventos que utilizan una secuencia de observables y operadores de consulta.
