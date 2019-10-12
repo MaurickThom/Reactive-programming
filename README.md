@@ -69,6 +69,8 @@ Internamente un subject se suscribe a un observable simple
 ````javascript
     observable.subscribe(subject)
 ````
+Los operadores Multicast `ejm : Subject` en realidad lo que hace es que los observers se suscriben a un sujeto subyacente , y el sujeto sesuscribe a la funete Observable
+Estos devuelven un Oservable que se parece a un Observable normal, pero funciona como un Subject cuando se trata de susbribirse.
 
 ## *Referencias*
 
