@@ -36,8 +36,8 @@ const USERS = [
 ]
 // concat : concatena multiples observables
 
-const {concat,interval,range,operators} = rxjs
-const {take} = operators
+const {concat,interval,range,operators,from,of} = rxjs
+const {take,pluck,groupBy,map,toArray,mergeMap} = operators
 
 const timer$ = interval(1000)
     .pipe(
@@ -55,7 +55,19 @@ result$.subscribe(console.log)
 
 // groupBy
 
+const sourceGroupBy$ = of(1,2,3,4,5,6)
+    .pipe(
+        groupBy(item=>item%2===0),
+        mergeMap(group => group.pipe(toArray()))
+    )
+    .subscribe(console.log)
+
 //plunck : selecciona las propiedades que quiere emitir
+
+const sourcePluck$ = from(USERS)
+const examplePluck$ = sourcePluck$.pipe(
+    pluck('jobs')
+).subscribe(console.log)
 
 // switchMap
 
