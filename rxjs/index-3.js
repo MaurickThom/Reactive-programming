@@ -37,9 +37,9 @@ const USERS = [
 // concat : concatena multiples observables
 
 const {concat,interval,range,operators,from,of} = rxjs
-const {take,pluck,groupBy,map,toArray,mergeMap} = operators
+const {take,pluck,groupBy,map,toArray,mergeMap,scan,tap} = operators
 
-const timer$ = interval(1000)
+const timer$ = interval(500)
     .pipe(
         take(4)
     )
@@ -49,25 +49,37 @@ const result$ = concat(
     timer$,
     range$
 )
-result$.subscribe(console.log)
+// result$.subscribe(console.log)
 
 // bufferTime
 
-// groupBy
+// groupBy : Agrupa observables según el valor proporcionado.
 
-const sourceGroupBy$ = of(1,2,3,4,5,6)
-    .pipe(
-        groupBy(item=>item%2===0),
-        mergeMap(group => group.pipe(toArray()))
-    )
-    .subscribe(console.log)
+// const sourceGroupBy$ = of(1,2,3,4,5,6)
+//     .pipe(
+//         groupBy(item=>item%2===0),
+//         mergeMap(group => group.pipe(toArray()))
+//     )
+//     .subscribe(console.log)
 
-//plunck : selecciona las propiedades que quiere emitir
+// ejemplo de fibonacci con Rx
+const interval$ = interval(500)
+        .pipe(
+            take(16),
+            scan(({prev,last})=>({prev:last,last:prev+last}),{prev:0,last:1}),
+            pluck('prev'),
+            groupBy(num=>Math.floor(Math.log10(num))),
+            mergeMap(group=>group.pipe(toArray())),
+        ).subscribe(console.log)
 
-const sourcePluck$ = from(USERS)
-const examplePluck$ = sourcePluck$.pipe(
-    pluck('jobs')
-).subscribe(console.log)
+
+
+//pluck : selecciona las propiedades que quiere emitir
+
+// const sourcePluck$ = from(USERS)
+// const examplePluck$ = sourcePluck$.pipe(
+//     pluck('jobs')
+// ).subscribe(console.log)
 
 // switchMap
 
