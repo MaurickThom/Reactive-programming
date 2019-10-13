@@ -16,6 +16,6 @@ const source = timer$.pipe(
 
 const shareSource = source.pipe(share())
 
-// El efecto oculto solo se visualiza dos veces
+// El efecto oculto solo se visualiza una veces
 const subscribe$1Best = shareSource.subscribe(console.log)
 const subscribe$2Best = shareSource.subscribe(console.log)
