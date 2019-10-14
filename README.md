@@ -31,6 +31,7 @@ Una API para la programación asincrona con un flujo de observables
 > <br>*Se basa en un centralizador de contenido que entiende como enviar los datos*
 > <br>*Uno se suscribe a un flujo constrante de datos (Stream) || (Evento)*
 > <br> Es un paradigma para operar con flujos de datos o stream asincronos
+> <br> Un Stream es un flujo de datos , que es una secuencia de eventos asincronos ordenados en el tiempo
 
 Tiene dos objetivos principales:
 
