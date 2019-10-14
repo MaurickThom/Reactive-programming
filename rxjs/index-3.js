@@ -153,7 +153,7 @@ const reset = fromEvent(resumeButton,'click')
         switchMap(()=>interval(1000))
     )
 
-const timer = merge(pause,resume,reset)
+const timer = merge(pause,resume)
     .pipe(
         startWith(true), // esto dira que en nuestro flujo primero irá un true
         switchMap(value=>value?interval$:empty()),
@@ -163,8 +163,5 @@ const timer = merge(pause,resume,reset)
     .subscribe(value=>remainingLabel.innerHTML = value)
 
 
-
-
-
-
-// forkJoin
+// forkJoin : operador de combinacion , pero solo emite las combinaciones de los ultimos
+// datos de cada flujo
