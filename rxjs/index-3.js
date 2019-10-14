@@ -61,9 +61,12 @@ const result$ = concat(
 
 // bufferTime : Recopila todo los datos transmitidos en cierto intervalos y luego los emite como un array
 
+
+
 // const intervalBufferTime$ = interval(500)
 // const buffer$ = intervalBufferTime$.pipe(
-//     bufferTime(1000,500)
+//     bufferTime(1000,5000) // cada 5 segundos emite lo que guardo hace un segundos
+                            // en intervalos de 1/2 segundo 
 // ).subscribe(console.log)
 
 
