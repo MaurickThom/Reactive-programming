@@ -42,6 +42,7 @@ const {concat,
         operators,
         from,
         of,
+        forkJoin,
         empty,// es un observable que se completa de inmediato
         merge,
         fromEvent} = rxjs
@@ -50,6 +51,7 @@ const {take,
         pluck,
         groupBy,
         map,
+        delay,
         startWith,
         toArray,
         mergeMap,
@@ -165,3 +167,15 @@ const timer = merge(pause,resume)
 
 // forkJoin : operador de combinacion , pero solo emite las combinaciones de los ultimos
 // datos de cada flujo
+
+const fork$ = forkJoin(
+    of('hola'),
+    of('mundo').pipe(
+        delay(1000),
+        tap(console.log)
+    ),
+    interval(5000).pipe(
+        tap(console.log),
+        take(2)
+    )
+).subscribe(console.log)
