@@ -76,6 +76,23 @@ Internamente un subject se suscribe a un observable simple
     observable.subscribe(subject)
 ````
 
+## **Operators**
+
+Los operadores nos permiten el manejo de eventos asincronos , estos operadores estan agrupados en diferentes categorias .
+
+**Categorias :**
+
+- Creation
+- Join Creation
+- Transformation
+- Filtering
+- Join
+- Multicasting
+- Error handling
+- Utility
+- Conditional and Boolean
+- Mathematical and Aggregate 
+
 Los operadores Multicast `ejm : Subject` en realidad lo que hace es que los observers se suscriben a un sujeto subyacente , y el sujeto se suscribe a la funete Observable
 Estos devuelven un Observable que se parece a un Observable normal, pero funciona como un Subject cuando se trata de susbribirse.
 
