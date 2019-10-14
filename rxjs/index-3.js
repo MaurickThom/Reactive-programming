@@ -60,7 +60,13 @@ const result$ = concat(
 // result$.subscribe(console.log)
 
 // bufferTime : Recopila todo los datos transmitidos en cierto intervalos y luego los emite como un array
-
+// Almacena valores de la fuente durante un tiempo específico bufferTimeSpan. A menos que se 
+// proporcione el argumento opcional bufferCreationInterval, emite y restablece el búfer cada 
+// bufferTimeSpan milisegundos. Si se proporciona bufferCreationInterval, este operador abre el 
+// buffer cada bufferCreationInterval milisegundos y cierra (emite y restablece) el buffer cada 
+// bufferTimeSpan milisegundos. Cuando se especifica el argumento opcional maxBufferSize, el 
+// búfer se cerrará después de bufferTimeSpan milisegundos o cuando contenga elementos 
+// maxBufferSize.
 
 
 // const intervalBufferTime$ = interval(500)
