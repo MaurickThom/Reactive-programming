@@ -1,11 +1,15 @@
 # **Reactive-programming**
 
-## ¿Que és?
+## ¿Qué es?
 
 Es un paradigma enfocado en el trabajo con flujos de datos `(Stream)` de manera asincrona. Un Stream es una secuencia de eventos ordenados en el tiempo.Puede emitir tres cosas diferentes : un valor , un error y una señal de `<<completado>>`. En otras palabras es un flujo constante de datos.
 
 Se captura estos eventos emitidos de forma asincrona, definiendo una función que se ejecutará cuando se emite un valor , otra función cuando se emite un error y otra se emite cuando se completa. La `escucha` **del** Stream se le conoce como `suscripcion`.
 Las funciones que estamos definiendo son `observers`. El Stream es el sujeto `Subject que tambien es un Observable`.
+
+## **¿Qué es RectiveX ?**
+
+Una API para la programación asincrona con un flujo de observables
 
 ````javascript
 
