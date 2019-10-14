@@ -92,3 +92,4 @@ Estos devuelven un Observable que se parece a un Observable normal, pero funcion
 - [*Angular in Depth*](https://blog.angularindepth.com/the-best-way-to-unsubscribe-rxjs-observable-in-the-angular-applications-d8f9aa42f6a0)
 - [*Angular*](https://www.concretepage.com/angular/)
 - [*Operator Tap*](https://www.concretepage.com/angular/angular-rxjs-tap)
+- [*Operators and Functions*](https://blog.angularindepth.com/mastering-rxjs-operators-and-functions-that-can-bite-you-when-you-dont-expect-cb2047cf5d4c)

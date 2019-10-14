@@ -36,15 +36,28 @@ const USERS = [
 ]
 // concat : concatena multiples observables
 
-const {concat,interval,range,operators,from,of} = rxjs
+const {concat,
+        interval,
+        range,
+        operators,
+        from,
+        of,
+        empty,// es un observable que se completa de inmediato
+        merge,
+        fromEvent} = rxjs
+
 const {take,
         pluck,
         groupBy,
         map,
+        startWith,
         toArray,
         mergeMap,
         scan,
+        mapTo,
+        switchMap,
         tap,
+        takeWhile,
         bufferTime} = operators
 
 const timer$ = interval(500)
@@ -61,7 +74,7 @@ const result$ = concat(
 
 // bufferTime : Recopila todo los datos transmitidos en cierto intervalos y luego los emite como un array
 // Almacena valores de la fuente durante un tiempo específico bufferTimeSpan. A menos que se 
-// proporcione el argumento opcional bufferCreationInterval, emite y restablece el búfer cada 
+// proporcione el argumento opcional bufferCreationInterval, emite y restablece el buffer cada 
 // bufferTimeSpan milisegundos. Si se proporciona bufferCreationInterval, este operador abre el 
 // buffer cada bufferCreationInterval milisegundos y cierra (emite y restablece) el buffer cada 
 // bufferTimeSpan milisegundos. Cuando se especifica el argumento opcional maxBufferSize, el 
@@ -105,6 +118,53 @@ const result$ = concat(
 //     pluck('jobs')
 // ).subscribe(console.log)
 
-// switchMap
+// switchMap : Tiene las propiedades de map pero adiciona las propiedades poder interrumpir el mapeo 
+// interrumpir un observable
+
+// const click$ = fromEvent(document,'click')
+// click$.pipe(
+//     switchMap(()=>interval(1000))
+// )
+// .subscribe(console.log)
+
+// ejemplo para switchMap
+
+const remainingLabel = document.getElementById('remaining'),
+    pauseButton = document.getElementById('pause'),
+    resumeButton = document.getElementById('resume'),
+    resetButton = document.getElementById('reset')
+
+
+const interval$ = interval(1000)
+    .pipe(
+        mapTo(-1) // emitirá de manera constante un -1
+    )
+
+const pause = fromEvent(pauseButton,'click')
+    .pipe(
+        mapTo(false) // emitirá de manera constante un false
+    )
+const resume = fromEvent(resumeButton,'click')
+    .pipe(
+        mapTo(true) // emitirá de manera constante un true
+    )
+const reset = fromEvent(resumeButton,'click')
+    .pipe(
+        switchMap(()=>interval(1000))
+    )
+
+const timer = merge(pause,resume,reset)
+    .pipe(
+        startWith(true), // esto dira que en nuestro flujo primero irá un true
+        switchMap(value=>value?interval$:empty()),
+        scan((acc,curr)=>(curr?curr+acc:acc),10),
+        takeWhile(value=>value>=0)
+    )
+    .subscribe(value=>remainingLabel.innerHTML = value)
+
+
+
+
+
 
 // forkJoin
