@@ -37,7 +37,15 @@ const USERS = [
 // concat : concatena multiples observables
 
 const {concat,interval,range,operators,from,of} = rxjs
-const {take,pluck,groupBy,map,toArray,mergeMap,scan,tap} = operators
+const {take,
+        pluck,
+        groupBy,
+        map,
+        toArray,
+        mergeMap,
+        scan,
+        tap,
+        bufferTime} = operators
 
 const timer$ = interval(500)
     .pipe(
@@ -51,7 +59,14 @@ const result$ = concat(
 )
 // result$.subscribe(console.log)
 
-// bufferTime
+// bufferTime : Recopila todo los datos transmitidos en cierto intervalos y luego los emite como un array
+
+// const intervalBufferTime$ = interval(500)
+// const buffer$ = intervalBufferTime$.pipe(
+//     bufferTime(1000,500)
+// ).subscribe(console.log)
+
+
 
 // groupBy : Agrupa observables según el valor proporcionado.
 
@@ -63,14 +78,14 @@ const result$ = concat(
 //     .subscribe(console.log)
 
 // ejemplo de fibonacci con Rx
-const interval$ = interval(500)
-        .pipe(
-            take(16),
-            scan(({prev,last})=>({prev:last,last:prev+last}),{prev:0,last:1}),
-            pluck('prev'),
-            groupBy(num=>Math.floor(Math.log10(num))),
-            mergeMap(group=>group.pipe(toArray())),
-        ).subscribe(console.log)
+// const interval$ = interval(500)
+//         .pipe(
+//             take(16),
+//             scan(({prev,last})=>({prev:last,last:prev+last}),{prev:0,last:1}),
+//             pluck('prev'),
+//             groupBy(num=>Math.floor(Math.log10(num))),
+//             mergeMap(group=>group.pipe(toArray())),
+//         ).subscribe(console.log)
 
 
 

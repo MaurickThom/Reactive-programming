@@ -25,7 +25,13 @@ Las funciones que estamos definiendo son `observers`. El Stream es el sujeto `Su
 
 > *La programación reactiva es un paradigma basado en Stream de datos Observables*
 > <br>*Se basa en un centralizador de contenido que entiende como enviar los datos*
-> <br>*Uno se suscribe a un flujo constrante de datos (Stream) / (Evento)*
+> <br>*Uno se suscribe a un flujo constrante de datos (Stream) || (Evento)*
+> <br> Es un paradigma para operar con flujos de datos o stream asincronos
+
+Tiene dos objetivos principales:
+
+- Propagar los cambios que ocurren dentro de la variables del sistema de manera reactiva
+- Trabajar con el flujo asincronos de datos
 
 ## **Diferencia entre promesa y el Observable**
 
