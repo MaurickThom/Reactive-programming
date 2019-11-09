@@ -10,10 +10,11 @@ subject.subscribe({
     next:value=>console.log(`Observer B ${value}`)
 })
 
-const arr = [1,2,3,4,5]
+const arrLetters = ['a','b','c','d','e','f','g']
+const arrNumbers = [1,2,3,4,5,6,7]
 
-const observableOf$ = of(...arr)
-const observableFrom$ = from(arr)
+const observableOf$ = of(...arrLetters)
+const observableFrom$ = from(arrNumbers)
 
 const subscription = observableOf$.subscribe(subject) // un subcription es un objecto que representa un objeto desechable
 const childSubscription = observableFrom$.subscribe(subject)
