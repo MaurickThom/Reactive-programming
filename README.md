@@ -81,6 +81,14 @@ Internamente un subject se suscribe a un observable simple
     observable.subscribe(subject)
 ````
 
+### **Unicast && Multicast**
+
+.
+
+### **Tipos de Subjects**
+
+.
+
 ## **Operators**
 
 Los operadores nos permiten el manejo de eventos asincronos , estos operadores estan agrupados en diferentes categorias .
