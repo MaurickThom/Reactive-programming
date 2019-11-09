@@ -81,13 +81,39 @@ Internamente un subject se suscribe a un observable simple
     observable.subscribe(subject)
 ````
 
-### **Unicast && Multicast**
-
-.
-
 ### **Tipos de Subjects**
 
-.
+````javascript
+
+    const subject = new Rx.Subject()
+
+    subject.subscribe({
+        next:value=>console.log(`Observer A ${value}`)
+    })
+
+    subject.subscribe({
+        next:value=>console.log(`Observer B ${value}`)
+    })
+
+    const arr = [1,2,3,4,5]
+
+    const observableOf$ = Rx.Observable.of(...arr)
+    const observableFrom$ = Rx.Observable.from(arr)
+
+    const subscription = observableOf$.subscribe(subject) // un subcription es un objecto que representa un objeto desechable
+    const childSubscription = observableFrom$.subscribe(subject)
+
+    subscription.add(childSubscription)
+
+    setTimeout(()=>{
+        subscription.remove(childSubscription);
+        subscription.unsubscribe()
+    }, 1000)
+
+````
+
+En conclusión un subject actua como un Observable y un Observer gracias a los sistemas de pull
+o push que nos ofrece para poder recibir o enviar la data
 
 ## **Operators**
 
@@ -106,7 +132,7 @@ Los operadores nos permiten el manejo de eventos asincronos , estos operadores e
 - Conditional and Boolean
 - Mathematical and Aggregate 
 
-Los operadores Multicast `ejm : Subject` en realidad lo que hace es que los observers se suscriben a un sujeto subyacente , y el sujeto se suscribe a la funete Observable
+Los operadores Multicast `ejm : Subject` en realidad lo que hace es que los observers se suscriben a un sujeto subyacente , y el sujeto se suscribe a la fuente Observable
 Estos devuelven un Observable que se parece a un Observable normal, pero funciona como un Subject cuando se trata de susbribirse.
 
 ## **NgRx**
