@@ -73,7 +73,7 @@ Esta libreria usa un set de funciones asincronas y eventos que utilizan una secu
 ## **Subject**
 
 Un `subject` es una clase especializada de observable cuya función es el detectar los cambios y emitirlos de forma multicast.
-Mientras que un simple observable es unicast, es decir que cada observador suscrito posee uina ejecuccion independiente del observable.
+Mientras que un simple observable es unicast, es decir que cada observador suscrito posee una ejecuccion independiente del observable.
 
 Internamente un subject se suscribe a un observable simple
 
@@ -81,7 +81,11 @@ Internamente un subject se suscribe a un observable simple
     observable.subscribe(subject)
 ````
 
+> *Los Subjects son como EventEmitters: mantienen un registro de muchos listeners.*
+
 ### **Tipos de Subjects**
+
+.
 
 ````javascript
 
