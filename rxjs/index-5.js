@@ -10,7 +10,7 @@ const timer$ = from(arrLetters)
         .pipe(
             zip(
                 interval(120),
-                (a,b)=>a
+                (value,index)=>value // ['h',0]
             )
         )
 
