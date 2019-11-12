@@ -21,11 +21,11 @@ const Subscription2 = myObservable.subscribe(data=>{
 const subject = new Subject()
 
 subject.subscribe(data => {
-    console.log(data)
+    console.log(data,'asdas')
 })
 
 subject.subscribe(data => {
-    console.log(data)
+    console.log(data,'asdasd')
 });
 
 subject.next(Math.random())
