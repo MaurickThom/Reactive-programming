@@ -1,6 +1,6 @@
 const {BehaviorSubject} = rxjs
 
-const behaviorSubject = new BehaviorSubject()
+const behaviorSubject = new BehaviorSubject() // por defecto se puede inicializar new BehaviorSubject('Hello')
 
 behaviorSubject.subscribe(data=>{
     console.log('subscription 1 ',data);
