@@ -83,6 +83,13 @@ Internamente un subject se suscribe a un observable simple
 
 > *Los Subjects son como EventEmitters: mantienen un registro de muchos listeners.*
 
+Internamente el Subject , `subscribe` no invoca un flujo , solamente registra el observador dado en una lista de observers.
+Ahora cada `subject` es un observer y contiene los metodos necesarios para el analisis del flujo asincrono
+
+- next
+- err
+- complete
+
 ### **Tipos de Subjects**
 
 .
@@ -98,6 +105,8 @@ Internamente un subject se suscribe a un observable simple
     subject.subscribe({
         next:value=>console.log(`Observer B ${value}`)
     })
+    
+    // subject.next(1) // esto recien detectara un cambio
 
     const arr = [1,2,3,4,5]
 
