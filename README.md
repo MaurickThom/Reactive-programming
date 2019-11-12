@@ -77,6 +77,8 @@ Mientras que un simple observable es unicast, es decir que cada observador suscr
 
 Internamente un subject se suscribe a un observable simple
 
+> *Multicasting :  compartir exactamente el mismo stream de datos con todas las subscripciones sin preocuparnos del tipo de Observable que estamos manejando.*
+
 ````javascript
     observable.subscribe(subject)
 ````
