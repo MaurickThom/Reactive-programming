@@ -105,7 +105,7 @@ Ahora cada `subject` es un observer y contiene los metodos necesarios para el an
     subject.subscribe({
         next:value=>console.log(`Observer B ${value}`)
     })
-    
+
     // subject.next(1) // esto recien detectara un cambio
 
     const arr = [1,2,3,4,5]
