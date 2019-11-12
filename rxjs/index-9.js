@@ -14,3 +14,14 @@ subject.complete()
 
 subject.next(3);
 subject.complete()
+
+const sub = new AsyncSubject();
+
+sub.subscribe(console.log)
+
+sub.next(123)
+
+sub.subscribe(console.log)
+
+sub.next(456)
+sub.complete()

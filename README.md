@@ -83,7 +83,7 @@ Internamente un subject se suscribe a un observable simple
     observable.subscribe(subject)
 ````
 
-> *Los Subjects son como EventEmitters: mantienen un registro de muchos listeners.*
+> *Los Subjects son como EventEmitters(Angular): mantienen un registro de muchos listeners.*
 
 Internamente el Subject , `subscribe` no invoca un flujo , solamente registra el observador dado en una lista de observers.
 Ahora cada `subject` es un observer y contiene los metodos necesarios para el analisis del flujo asincrono
