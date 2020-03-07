@@ -166,3 +166,4 @@ Estos devuelven un Observable que se parece a un Observable normal, pero funcion
 - [*Operators and Functions*](https://blog.angularindepth.com/mastering-rxjs-operators-and-functions-that-can-bite-you-when-you-dont-expect-cb2047cf5d4c)
 - [*reactive programming*](https://pablomagaz.com/blog/programacion-reactiva-con-rxjs)
 - [*Subjects*](https://pablomagaz.com/blog/rxjs-subjects-que-son-como-funcionan)
+- [*Multicast*](https://netbasal.com/understanding-rxjs-multicast-operators-77b3f60af0a2)
