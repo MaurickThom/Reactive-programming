@@ -35,7 +35,7 @@ const map = fn => source => new Observable(
             observer.error(err)
         }
     })
-)
+) // retorna un funcion que toma una fuente observable y devuelve una nuevo observable , que esta suscrita a la fuente
 const http = url =>{
     const subcriptionFn =  async observer => {
         try{
@@ -67,17 +67,17 @@ const observer = tag => ({
 /////////////////////////////////////////
 
 // operador unicast
-http('https://jsonplaceholder.typicode.com/users')
-    .subscribe(observer('subscriber-1'));
+// http('https://jsonplaceholder.typicode.com/users')
+//     .subscribe(observer('subscriber-1'));
 
-http('https://jsonplaceholder.typicode.com/users')
-    .subscribe(observer('subscriber-2'));
+// http('https://jsonplaceholder.typicode.com/users')
+//     .subscribe(observer('subscriber-2'));
 
 
 const observable$ = http('https://jsonplaceholder.typicode.com/users').pipe(
     map(res=>res[0])
 )
-observable$.subscribe({
+observable$.subscribe({ // funcion suscripcion == funcion productor
     next(data){
         console.log(data)
     },
@@ -88,3 +88,28 @@ observable$.subscribe({
         console.log('complete')
     }
 })
+
+// explicacion
+/**
+ * cuando llamamos al subscribe estamos ejecutando los operadores dentro del pipe
+ * de manera secuencial como en este caso solo existe el map
+ * se ejecutará el mapa observable, que se suscribe al http observable. cuando
+ * la fuente http observable emite un nuevo valor, el valor primero alcanza la función de
+ * suscripcion del mapa(ya que es la única en el pipe , si hubiera mas emitiría de forma secuencial
+ * hasta pasar por todos los operadores dentro del pipe) luego de aplicar la funcion de proyeccion
+ * en el valor, el mapa observable emite el valor a la úlima suscripcion. esto se llama la cadena observable
+ * 
+ */
+
+
+// observable$.subscribe({
+//     next(data){
+//         console.log(data)
+//     },
+//     error(err){
+//         console.log(err);
+//     },
+//     complete(){
+//         console.log('complete');
+//     }
+// })
