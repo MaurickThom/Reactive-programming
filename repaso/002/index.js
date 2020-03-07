@@ -30,6 +30,9 @@ const map = fn => source => new Observable(
     observer => source.subscribe({
         next(value){
             observer.next(fn(value))
+        },
+        error(err){
+            observer.error(err)
         }
     })
 )
@@ -39,10 +42,8 @@ const http = url =>{
             const response = await fetch(url)
             const data = await response.json()
             observer.next(data)
-            observer.complete()
         }catch(err){
             observer.error(err)
-        }finally{
         }
 
     }
@@ -73,3 +74,17 @@ http('https://jsonplaceholder.typicode.com/users')
     .subscribe(observer('subscriber-2'));
 
 
+const observable$ = http('https://jsonplaceholder.typicode.com/users').pipe(
+    map(res=>res[0])
+)
+observable$.subscribe({
+    next(data){
+        console.log(data)
+    },
+    error(err){
+        console.log(err)
+    },
+    complete(){
+        console.log('complete')
+    }
+})
