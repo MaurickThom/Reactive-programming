@@ -1,5 +1,9 @@
 # **Curso Rxjs Udemy**
 
+### **¿Por qué usar extensiones reactivas**
+
+.
+
 ## **Marble Diagrams**
 
 ## **Referencias**
@@ -10,3 +14,5 @@
 - [**Pull and Push**](https://medium.com/javascript-everyday/switch-from-pull-to-push-based-approach-with-rxjs-731340a5c797)
 - [**Pull and Push**](https://ncjamieson.com/understanding-publish-and-share/)
 - [**Pull and Push**](https://medium.com/@thomasburlesonIA/push-based-architectures-with-rxjs-81b327d7c32d)
+- [**hot vs cold Observables**](https://medium.com/@luukgruijs/understanding-hot-vs-cold-observables-62d04cf92e03)
+- [**extra**](http://willtaylor.blog/rxjs-observables-hot-cold-explained/)

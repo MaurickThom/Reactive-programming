@@ -1,0 +1,34 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: yellow;
+    height : 3000px;
+    display: flex;
+}
+.video-container{
+    margin: auto;
+    width: 50%;
+    height: 400px;
+    background: red;
+    display: flex;
+}
+
+video{
+    margin: auto;
+    width: 80%;
+    height: 80%;
+    background: blue;
+}
+.pikachu{
+    margin: auto;
+    width: 80%;
+    height: 80%;
+}
+.video-container video{
+    display: none;
+}
