@@ -25,7 +25,6 @@ const interval$ = new Observable<number>((subscriber:Subscriber<number>)=>{
 
 const subcription:Subscription = interval$.subscribe(observer)
 
-
 // es el primero 
 setTimeout(_=>{
     subcription.unsubscribe()
