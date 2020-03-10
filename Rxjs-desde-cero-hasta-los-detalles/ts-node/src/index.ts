@@ -1,3 +1,5 @@
+import { of } from "rxjs";
+
 // import {Observable, Observer} from 'rxjs'
 
 
@@ -11,4 +13,7 @@
 // import './observable/001/observable'
 // import './observable/002/subscription-unsubscription'
 // import './observable/003/observable-chain'
-import './observable/004/subject-1'
+// import './observable/004/subject-1'
+// import './observable/005/of$'
+// import './observable/006/range$'
+import './observable/007/scheduler'
