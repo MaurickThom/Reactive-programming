@@ -17,4 +17,5 @@ import { of } from "rxjs";
 // import './observable/005/of$'
 // import './observable/006/range$'
 // import './observable/007/scheduler'
-import './observable/008/timer'
+// import './observable/008/timer'
+import './observable/007/async'
