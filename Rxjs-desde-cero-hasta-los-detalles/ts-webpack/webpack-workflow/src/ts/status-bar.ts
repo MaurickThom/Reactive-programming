@@ -8,7 +8,7 @@ function getPercentageScroll(event:any):number{
     return (scrollTop / (scrollHeight - clientHeight))*100
 }
 
-console.log(progressBar);
+// console.log(progressBar);
 
 // streams
 const scroll$ = fromEvent(document,'scroll')

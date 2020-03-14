@@ -1,3 +1,6 @@
 import './index.pug'
 import './scss/style.scss'
 import './ts/status-bar'
+// import './ts/reduce'
+// import './ts/scan'
+import './ts/scanRedux'
