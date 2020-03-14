@@ -26,9 +26,9 @@ module.exports = {
     resolve: {
         extensions: ['.ts','.js','.json']
     },
-    optimization: {
-        minimizer: [ new OptimizeCssAssetsPlugin() ]
-    },
+    // optimization: {
+    //     minimizer: [ new OptimizeCssAssetsPlugin() ]
+    // },
     watch : true,
     // mode: "development",
     output: {
@@ -214,6 +214,6 @@ module.exports = {
             filename: env === 'production' ?"css/[name].[contenthash].css":"css/[name].css",
             chunkFilename: "[id].css"
         }),
-        new MinifyPlugin(),
+        // new MinifyPlugin(),
     ]
 };
