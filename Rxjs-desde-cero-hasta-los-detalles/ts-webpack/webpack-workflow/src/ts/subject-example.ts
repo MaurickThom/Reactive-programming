@@ -1,5 +1,5 @@
 import { Subject, from, Observer, fromEvent } from "rxjs"
-import { map, distinct, filter, toArray, first, debounceTime } from "rxjs/operators"
+import { map, distinct, filter, toArray, first, debounceTime, distinctUntilChanged } from "rxjs/operators"
 
 const txtUser = <HTMLInputElement> document.getElementById('textUser'),
     select = <HTMLSelectElement> document.getElementById('select'),
@@ -73,7 +73,8 @@ const endpoint_stream = fromEvent<any>(select, 'click').
     pipe(
         map(event  => event.target),
         filter(tag=>tag.tagName!=='SELECT'),
-        map(tag=>tag.value)
+        map(tag=>tag.value),
+        distinctUntilChanged()
     ).subscribe(value=>{
         valueSelect = value
         observer.next({type:value})
@@ -84,6 +85,7 @@ const userType$ = source$
     .pipe(
         map(user=>user.type.toLowerCase()),
         distinct()
+        // distinct(user=> user.type.toLowerCase())
     )
 
 const sub$ = new Subject()
@@ -92,18 +94,20 @@ sub$.subscribe((type:any)=>{
     observer.next({type})    
 })
 const subscriptionSubjec = userType$.pipe(
-    first()
+    first(),
+    // map(user=>user.type)
 ).subscribe(sub$)
 
 userType$
-.subscribe(type=>{
-        select.innerHTML+=`<option value="${type}">${type}</option>`
+.subscribe(data=>{
+        select.innerHTML+=`<option value="${data}">${data}</option>`
     })
 
 const input$ = fromEvent<any>(txtUser,'keyup')
 .pipe(
     debounceTime(500),
-    map(tag=>tag.target.value)
+    map(tag=>tag.target.value.trim()),
+    distinctUntilChanged()
 ).subscribe(value=>{
     observer.next({type:valueSelect,name:value})
 })
