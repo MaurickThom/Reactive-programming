@@ -1,5 +1,15 @@
 // Redux Example
 
+/**
+ * https://dev.to/fallenstedt/scan-operator-for-mini-redux-stores-41m9
+ * 
+ * Mini gestion de estados
+ * 
+ *  el scan podria ser la base del patron redux
+ *  por cada cambio de estado que haya en un objeto este notificara,es decir administrar el 
+ * estado global de la aplicacion en un solo objeto
+ */
+
 import { from } from "rxjs"
 import { scan, map } from "rxjs/operators"
 
