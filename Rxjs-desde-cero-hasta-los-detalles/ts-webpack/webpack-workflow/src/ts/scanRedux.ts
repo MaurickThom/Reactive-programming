@@ -10,10 +10,15 @@
  * estado global de la aplicacion en un solo objeto
  */
 
+/**
+ * 
+ * con este ejemplo se va a simular que se tendrá varias emisiones
+ * de cambios que recibira el usuario
+ */
 import { from } from "rxjs"
 import { scan, map } from "rxjs/operators"
 
-interface IUSer{
+interface IUser{
     id?: string
     authenticated?: boolean
     token?: string | null
@@ -21,20 +26,20 @@ interface IUSer{
     age? : number
 }
 
-const arrUsers: IUSer[] = [
+const arrUsers: IUser[] = [
     { id: '1', authenticated: false, token: null,name:'thom' },
     { id: '2', authenticated: true, token: 'ABC',name:'carlos' },
     { id: '3', authenticated: true, token: 'ABC123',name:'asasd ' },
 ]
 
 const state$ = from(arrUsers).pipe(
-    scan<IUSer>((acc,curr)=>{
+    scan<IUser>((acc,curr)=>{
         return {...acc,...curr}
     },{age:33})
 )
 // .subscribe(console.log)
 
 const id$ = state$.pipe(
-    map((state:IUSer)=>state.id)
+    map((state:IUser)=>state.id)
 )
 .subscribe(console.log)
