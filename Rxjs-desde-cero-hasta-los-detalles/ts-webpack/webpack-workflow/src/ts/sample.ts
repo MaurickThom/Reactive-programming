@@ -17,8 +17,8 @@ el segundo observable emita un dato
 
 e === event
 
-interval$   1234-------------3434112-----------------3---
-click$      ---e---------------e-------------e-------e---
+interval$   1234-------------3434112-----------------3-----
+click$      ---e---------------e-------------e-------e-----
 
 
 
@@ -29,5 +29,18 @@ const interval$ = interval(500)
 const click$ = fromEvent<MouseEvent>(document,'click')
 
 interval$.pipe(
-    sample(click$) // obtengo la muestra de interval al momento de que haga click
+    sample(click$) // obtengo la muestra de interval al momento de que haga click siempre y cuando el interval haya emitido un dato
 ).subscribe(console.log)
+
+/**
+ejemplo con 5 seg
+
+el timer aun no emite nada hasta 5 segundos y en ese tiempo antes de los 5 segundos 
+se ejecuta un evento click no emitirá nada , luego de los 5 segundos emite un valor
+pero no se mostrará nada hasta que obtenga un evento click , si hay un evento click emitirá un 
+el dato emitido por el interval si doy otro evento click no mostrará nada ya que ya obtuve una muestra
+de lo que habia emitido y solo podre ver otro dato hasta que el timer emita otro valor luego de 5 segundos
+
+ */
+
+
