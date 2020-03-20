@@ -1,4 +1,4 @@
-import { sampleTime } from "rxjs/operators";
+import { sampleTime, map } from "rxjs/operators";
 import { fromEvent } from "rxjs";
 
 // el sampleTime nos permite obtener el ultimo valor obtenido en un stream de datos en un
@@ -20,9 +20,15 @@ a-b--c--|---d------|fghijklm|m-------|
 -------->--------->-------->-------->
         1         1        1        1 : sec
 
+se emite el ultimo dato en un tiempo determinado
+
 */
 
+const click$ = fromEvent<MouseEvent>(document,'click')
 
+// cada tramo que pase que me informe cual fue el ultimo evento que ocurrio en ese tramo de tiempo
+click$.pipe(
+    sampleTime(2000), // es mas eficiente tener el timer primero antes que haga la transformacion
+    map(({x,y})=>({x,y})),
+).subscribe(console.log)
 
-
-const click$ = fromEvent(document,'click')
