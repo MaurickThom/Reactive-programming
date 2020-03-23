@@ -1,6 +1,6 @@
-import {ajax} from 'rxjs/ajax'
+import {ajax, AjaxError} from 'rxjs/ajax'
 import { Observer, from, fromEvent, of } from 'rxjs'
-import { debounceTime, pluck, mergeMap, distinctUntilChanged, isEmpty, catchError } from 'rxjs/operators'
+import { debounceTime, pluck, mergeMap, distinctUntilChanged, isEmpty, catchError, filter, tap, mapTo } from 'rxjs/operators'
 
 const url = 'https://api.github.com/search/users?q='
 const input = document.createElement('input')
@@ -11,29 +11,18 @@ const body = document.querySelector('body')
 
 body?.append(input,orderList)
 
-const observer:Observer<any> = {
-    next:data=>{
-
-    },
-    complete: ()=>{
-
-    },
-    error:err=>{
-
-    }
-}
-
 const ajaxFn$ = (user:string) => ajax({
     url:`${url}${user}`
 })
 
 fromEvent<MouseEvent>(input,'keyup').pipe(
     debounceTime(500),
-    pluck<MouseEvent,string>('target','value'),
+    pluck<object,string>('target','value'),
+    filter((data:string)=> data !== ''),
     distinctUntilChanged(),
-    mergeMap(ajaxFn$),
-    pluck('response','items'),
-    catchError(err=>of(err)),
+    mergeMap(ajaxFn$), // map + megerAll(merge + flat)
+    pluck<object,object[]>('response','items'),
+    catchError((err:AjaxError)=>of(err)),
 ).subscribe(console.log)
 
 
