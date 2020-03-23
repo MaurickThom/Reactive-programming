@@ -1,0 +1,5 @@
+fetch('https://randomuser.me/api/')
+    .then(response=>response.json())
+    .then(data=>data.results)
+    .then(console.log)
+    .catch(console.error)
