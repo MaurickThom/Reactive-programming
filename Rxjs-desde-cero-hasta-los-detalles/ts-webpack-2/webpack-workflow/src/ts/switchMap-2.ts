@@ -1,5 +1,5 @@
-import { interval } from "rxjs";
-import { take, switchMap, map } from "rxjs/operators";
+import { interval, fromEvent } from "rxjs";
+import { take, switchMap, map, tap } from "rxjs/operators";
 
 const url = 'https://httpbin.org/delay/1?arg='
 /**
@@ -12,10 +12,55 @@ const long$ = interval(1000).pipe(take(4));
 const short$ = interval(500).pipe(take(4));
 
 long$.pipe(
-    switchMap(
+    switchMap( // a diferencia del mergeMap este mantiene solo un observable interno activo , es decir que las demas emisiones se completará ver ejemplo
         long => short$
             .pipe(
                 map(short => console.log({ long, short }))
             )
     )
 ).subscribe();
+
+/** Output
+{ long: 0, short: 0 }
+{ long: 1, short: 0 }
+{ long: 2, short: 0 }
+
+apartir de aquí el observable long terminará de emitir asi que este será el ultimoq que internamente switchMap tendrá
+{ long: 3, short: 0 }
+
+{ long: 3, short: 1 }
+{ long: 3, short: 2 }
+{ long: 3, short: 3 }
+*/
+
+
+const data = { 
+    author: 'Jhon', 
+    articles: [  
+        { 
+            id: 11, 
+            category: 'music' 
+        }, 
+        { 
+            id: 22, 
+            category: 'movies' 
+        }, 
+        { 
+            id: 33, 
+            category: 'music' 
+        } 
+    ] 
+}
+
+const service = () => new Promise((resolve,reject) => 
+    setTimeout(() => resolve(data) , 2000))
+
+const click$ = fromEvent(document,'click')
+
+
+click$
+    .pipe(
+        tap(_=>console.log('click')),
+        switchMap(service)
+    )
+    .subscribe(console.log)
