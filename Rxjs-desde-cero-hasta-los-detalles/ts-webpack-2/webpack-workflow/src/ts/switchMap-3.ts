@@ -1,6 +1,6 @@
 import {ajax, AjaxError} from 'rxjs/ajax'
 import { Observer, from, fromEvent, of } from 'rxjs'
-import { debounceTime, pluck, mergeMap, distinctUntilChanged, isEmpty, catchError, filter, tap, mapTo, switchMap } from 'rxjs/operators'
+import { debounceTime, pluck, mergeMap, distinctUntilChanged, isEmpty, catchError, filter, tap, mapTo, switchMap, delay, map, switchAll } from 'rxjs/operators'
 
 // const url = 'https://api.github.com/search/users?q='
 const url = 'https://httpbin.org/delay/1?arg='
@@ -37,3 +37,26 @@ fromEvent<MouseEvent>(input,'keyup').pipe(
     // pluck<object,object[]>('response','items'),
     catchError((err:AjaxError)=>of(err)),
 ).subscribe(console.log)
+
+const getData = (param:any) => {
+    return of(`retrieved new data with param ${param}`).pipe(
+      delay(1000)
+    )
+  }
+  
+//   // using a regular map
+//   from([1,2,3,4]).pipe(
+//     map(param => getData(param))
+//   ).subscribe(val => val.subscribe(data => console.log(data)));
+  
+//   // using map and switchAll
+//   from([1,2,3,4]).pipe(
+//     map(param => getData(param)),
+//     switchAll()
+//   ).subscribe(val => console.log(val));
+  
+  // using switchMap
+  from([1,2,3,4]).pipe(
+    switchMap(param => getData(param))
+  ).subscribe(val => console.log(val));
+  
