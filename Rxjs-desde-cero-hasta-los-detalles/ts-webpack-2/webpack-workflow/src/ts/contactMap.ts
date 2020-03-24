@@ -30,3 +30,4 @@ rx.from([1, 2, 3 ,4]).pipe(
 // con esto se puede hacer  sm -- barras por cada imagen (3)
 
 // ------ ------- ------
+// https://angular-academy.com/rxjs-switchmap-concatmap-mergemap-exhaustmap/#exhaustmap
