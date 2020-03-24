@@ -1,4 +1,5 @@
 import { fromEvent, interval , asyncScheduler} from "rxjs";
+import * as Rx from 'rxjs'
 import { mergeMap, tap, switchMap, take,merge, observeOn} from "rxjs/operators";
 
 const click$ = fromEvent(document, 'click')
@@ -20,11 +21,10 @@ const switchMap$ = click$.pipe(
     )
 )
 
+// mergeMap$.pipe(
+//     observeOn(asyncScheduler),
+//     merge(switchMap$)
+// ).subscribe()
 
-mergeMap$.pipe(
-    observeOn(asyncScheduler),
-    merge(switchMap$)
-).subscribe()
-    
-// const obsMerge = merge(mergeMap,switchMap)
-// obsMerge.subscribe()
+const obsMerge$ = Rx.merge(mergeMap$,switchMap$).pipe(observeOn(asyncScheduler))
+obsMerge$.subscribe()
