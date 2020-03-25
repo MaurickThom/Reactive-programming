@@ -1,0 +1,6 @@
+import './index.pug'
+import './scss/style.scss'
+import './img/clock.png'
+// import './ts/startWith'
+// import './ts/endWith'
+import './ts/lab-startwith'
