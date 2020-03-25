@@ -1,5 +1,5 @@
 import { timer, combineLatest, fromEvent } from "rxjs";
-import { mapTo, scan, startWith } from "rxjs/operators";
+import { mapTo, scan, startWith, tap } from "rxjs/operators";
 
 const firstTimer = timer(0, 1000)
 const secondTimer = timer(500, 1000)
@@ -32,7 +32,7 @@ const addOneClick$ = (id:string) =>
     mapTo(1),
     // keep a running total
     scan((acc, curr) => acc + curr, 0),
-    startWith(0)
+    startWith(0) // se emitirá primero sin necesidad del click
   );
 
 combineLatest(addOneClick$('red'), addOneClick$('black')).subscribe(
