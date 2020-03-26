@@ -13,13 +13,14 @@ const example = source.pipe(
     mergeMap(q => forkJoin(...q.map(myPromise)))
 );
 /*
-  output:
-  [
-   "Promise Resolved: 1",
-   "Promise Resolved: 2",
-   "Promise Resolved: 3",
-   "Promise Resolved: 4",
-   "Promise Resolved: 5"
-  ]
+https://www.learnrxjs.io/learn-rxjs/operators/combination/forkjoin
+    output:
+    [
+    "Promise Resolved: 1",
+    "Promise Resolved: 2",
+    "Promise Resolved: 3",
+    "Promise Resolved: 4",
+    "Promise Resolved: 5"
+    ]
 */
 const subscribe = example.subscribe(val => console.log(val));
