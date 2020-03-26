@@ -50,13 +50,14 @@ import { zip, of } from 'rxjs';
     getRequest(SW_API+"/people/1/").pipe(
         // Realizar los operadores respectivos aquí
         // pluck<object,string[]>('species'),
-        mergeMap( people => getRequest(people.species[0]).pipe(
-            map(specie=> ({specie,people}))) 
-        )
+        // switchMap( people => getRequest(people.species[0]).pipe(
+        //     map(specie=> ({specie,people}))) 
+        // )
+            switchMap( people => zip(of(people),getRequest(people.species[0]))),
+            map(([people,species])=>({people,species}))
+    )
     // NO TOCAR el subscribe ni modificarlo ==
-    ).subscribe( console.log )           // ==
+    .subscribe( console.log )           // ==
     // =======================================
-    
-
 
 })();
