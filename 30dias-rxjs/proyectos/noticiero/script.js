@@ -8,6 +8,7 @@ const {  map,filter,scan,mapTo ,distinct,pluck,take,repeat,withLatestFrom} = rxj
 // https://www.learnrxjs.io/learn-rxjs/operators/combination/withlatestfrom
 // https://rxjs-dev.firebaseapp.com/api/operators/withLatestFrom
 // a.withLatestFrom(b) a combina con el ultimo de b
+// https://stackblitz.com/@jorgeucano
 
 const _days = document.getElementById('weekDays')
 const day$ = fromEvent(_days,'click')
